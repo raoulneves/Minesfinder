@@ -1,6 +1,8 @@
 package pt.ipleiria.estg.dei.ei.esoft;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class MinesFinder extends JFrame {
 
@@ -17,6 +19,13 @@ public class MinesFinder extends JFrame {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
         pack();
+
+        // btn sair
+        sairButton.addActionListener(this::btnSairActionPerformed);
+    }
+
+    private void btnSairActionPerformed(ActionEvent e) {
+        System.exit(0);
     }
 
     public static void main(String[] args) {
