@@ -20,8 +20,8 @@ public class BotaoCampoMinado extends JButton {
         this.estado = estado;
         switch (estado) {
             case CampoMinado.VAZIO:
-                setText("");
-                setBackground(Color.LIGHT_GRAY);
+                setText("V");
+                setBackground(Color.DARK_GRAY);
                 break;
             case CampoMinado.TAPADO:
                 setText("");
@@ -41,7 +41,7 @@ public class BotaoCampoMinado extends JButton {
                 break;
             default:
                 setText(String.valueOf(estado));
-                setBackground(Color.LIGHT_GRAY);
+                setBackground(Color.DARK_GRAY);
         }
     }
 

@@ -48,6 +48,12 @@ public class CampoMinado {
     }
 
     public void revelarQuadricula(int x, int y) {
+        if (primeiraJogada) {
+            primeiraJogada = false;
+            instanteInicioJogo = System.currentTimeMillis();
+            colocarMinas(x, y);
+        }
+
         if(isVitoria()){
             jogoTerminado = true;
             jogadorDerrotado = false;
@@ -57,17 +63,13 @@ public class CampoMinado {
         if (jogoTerminado || estado[x][y] < TAPADO) {
             if(contarMinasVizinhas(x,y) == 0){
                 estado[x][y] = VAZIO;
+
                 revelarQuadriculasVizinhas(x,y);
             }else{
                 estado[x][y] = contarMinasVizinhas(x,y);
             }
         }
 
-        if (primeiraJogada) {
-            primeiraJogada = false;
-            instanteInicioJogo = System.currentTimeMillis();
-            colocarMinas(x, y);
-        }
 
         if(minas[x][y]){
             estado[x][y] = REBENTADO;
