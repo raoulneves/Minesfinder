@@ -30,4 +30,12 @@ public class CampoMinado {
     public boolean hasMina(int x, int y) {
         return minas[x][y];
     }
+
+    public int getNrLinhas() {
+        return nrLinhas;
+    }
+
+    public int getNrColunas() {
+        return nrColunas;
+    }
 }

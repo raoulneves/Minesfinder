@@ -32,7 +32,8 @@ public class MinesFinder extends JFrame {
     }
 
     private void btnFacilActionPerformed(ActionEvent e){
-        new JanelaDeJogo();
+        var janela = new JanelaDeJogo(new CampoMinado(9,9,10));
+        janela.setVisible(true);
     }
 
     private void btnMedioactionPerformed(ActionEvent e) {
