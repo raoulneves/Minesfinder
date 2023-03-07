@@ -7,8 +7,13 @@ public class BotaoCampoMinado extends JButton {
 
     private int estado;
 
-    public BotaoCampoMinado() {
+    private int linha;
+    private int coluna;
+
+    public BotaoCampoMinado(int linha, int coluna) {
         this.estado = CampoMinado.TAPADO;
+        this.linha = linha;
+        this.coluna = coluna;
     }
 
     public void setEstado(int estado) {
@@ -39,4 +44,13 @@ public class BotaoCampoMinado extends JButton {
                 setBackground(Color.LIGHT_GRAY);
         }
     }
+
+    public int getColuna() {
+        return coluna;
+    }
+
+    public int getLinha() {
+        return linha;
+    }
+
 }
