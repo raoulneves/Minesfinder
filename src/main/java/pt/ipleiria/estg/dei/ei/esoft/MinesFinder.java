@@ -22,10 +22,25 @@ public class MinesFinder extends JFrame {
 
         // btn sair
         sairButton.addActionListener(this::btnSairActionPerformed);
+        jogoFácilButton.addActionListener(this::btnFacilActionPerformed);
+        jogoMédioButton.addActionListener(this::btnMedioactionPerformed);
+        jogoDíficilButton.addActionListener(this::btnDificilactionPerformed);
     }
 
     private void btnSairActionPerformed(ActionEvent e) {
         System.exit(0);
+    }
+
+    private void btnFacilActionPerformed(ActionEvent e){
+        new JanelaDeJogo();
+    }
+
+    private void btnMedioactionPerformed(ActionEvent e) {
+
+    }
+
+    private void btnDificilactionPerformed(ActionEvent e) {
+
     }
 
     public static void main(String[] args) {
