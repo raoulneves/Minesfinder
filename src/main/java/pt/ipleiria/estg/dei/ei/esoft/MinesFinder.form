@@ -33,21 +33,23 @@
               <text value="Nível Fácil"/>
             </properties>
           </component>
-          <component id="1e72e" class="javax.swing.JLabel">
+          <component id="1e72e" class="javax.swing.JLabel" binding="lblNomeFacil">
             <constraints>
               <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
+              <name value=""/>
               <text value="Nome jogador"/>
             </properties>
           </component>
-          <component id="89eb4" class="javax.swing.JLabel">
+          <component id="89eb4" class="javax.swing.JLabel" binding="lblTempoFacil">
             <constraints>
               <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
                 <preferred-size width="51" height="16"/>
               </grid>
             </constraints>
             <properties>
+              <name value=""/>
               <text value="9999"/>
             </properties>
           </component>
@@ -59,21 +61,23 @@
               <text value="Nível Médio"/>
             </properties>
           </component>
-          <component id="71fbf" class="javax.swing.JLabel">
+          <component id="71fbf" class="javax.swing.JLabel" binding="lblNomeMedio">
             <constraints>
               <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
+              <name value=""/>
               <text value="Nome jogador"/>
             </properties>
           </component>
-          <component id="426c" class="javax.swing.JLabel">
+          <component id="426c" class="javax.swing.JLabel" binding="lblTempoMedio">
             <constraints>
               <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
                 <preferred-size width="51" height="16"/>
               </grid>
             </constraints>
             <properties>
+              <name value=""/>
               <text value="9999"/>
             </properties>
           </component>
@@ -85,21 +89,23 @@
               <text value="Nível Díficil"/>
             </properties>
           </component>
-          <component id="e0aac" class="javax.swing.JLabel">
+          <component id="e0aac" class="javax.swing.JLabel" binding="lblNomeDificil">
             <constraints>
               <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
+              <name value=""/>
               <text value="Nome jogador"/>
             </properties>
           </component>
-          <component id="80cd7" class="javax.swing.JLabel">
+          <component id="80cd7" class="javax.swing.JLabel" binding="lblTempoDificil">
             <constraints>
               <grid row="6" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
                 <preferred-size width="51" height="16"/>
               </grid>
             </constraints>
             <properties>
+              <name value=""/>
               <text value="9999"/>
             </properties>
           </component>

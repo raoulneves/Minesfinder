@@ -112,19 +112,19 @@ public class JanelaDeJogo extends JFrame {
         campoMinado.revelarQuadricula(x, y);
         actualizarEstadoBotoes();
         if (campoMinado.isJogoTerminado()) {
-            if (campoMinado.isJogadorDerrotado())
+            if (campoMinado.isJogadorDerrotado()) {
                 JOptionPane.showMessageDialog(null, "Oh, rebentou uma mina",
                         "Perdeu!", JOptionPane.INFORMATION_MESSAGE);
-            else
+            } else {
                 JOptionPane.showMessageDialog(null, "Parabéns. Conseguiu descobrir todas as minas em " +
                                 (campoMinado.getDuracaoJogo() / 1000) + " segundos",
                         "Vitória", JOptionPane.INFORMATION_MESSAGE);
+                boolean novoRecorde = campoMinado.getDuracaoJogo() < recordes.getTempo();
 
-            boolean novoRecorde=campoMinado.getDuracaoJogo()<recordes.getTempo();
-
-            if (novoRecorde) {
-                String nome = JOptionPane.showInputDialog("Introduza o seu nome");
-                recordes.setRecorde(nome, campoMinado.getDuracaoJogo());
+                if (novoRecorde) {
+                    String nome = JOptionPane.showInputDialog("Introduza o seu nome");
+                    recordes.setRecorde(nome, campoMinado.getDuracaoJogo());
+                }
             }
             setVisible(false);
         }
