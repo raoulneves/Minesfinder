@@ -86,7 +86,7 @@ public class CampoMinado {
     }
 
     public void marcarComoSuspeita(int x, int y){
-        if(estado[x][y] == TAPADO) {
+        if(estado[x][y] == MARCADO) {
             estado[x][y] = DUVIDA;
         }
     }

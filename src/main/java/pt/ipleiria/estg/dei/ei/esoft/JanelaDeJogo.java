@@ -2,7 +2,7 @@ package pt.ipleiria.estg.dei.ei.esoft;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
+import java.awt.event.*;
 
 public class JanelaDeJogo extends JFrame {
     private JPanel gamePanel; // painel do jogo. O nome é definido no modo Design, em "field name"
@@ -16,6 +16,62 @@ public class JanelaDeJogo extends JFrame {
         var nrLinhas = campoMinado.getNrLinhas();
         var nrColunas = campoMinado.getNrColunas();
 
+        MouseListener mouseListener=new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+            }
+            @Override
+            public void mousePressed(MouseEvent e) {
+                if (e.getButton() != MouseEvent.BUTTON3) {
+                    return;
+                }
+                var botao = (BotaoCampoMinado) e.getSource();
+                var y = botao.getColuna();
+                var x = botao.getLinha();
+                var estadoQuadricula = campoMinado.getEstadoQuadricula(x, y);
+                marcarQuadricula(x, y);
+            }
+            @Override
+            public void mouseReleased(MouseEvent e) {
+            }
+            @Override
+            public void mouseEntered(MouseEvent e) {
+            }
+            @Override
+            public void mouseExited(MouseEvent e) {
+            }
+        };
+
+        KeyListener keyListener=new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+                var botao = (BotaoCampoMinado) e.getSource();
+                var x = botao.getLinha(); // ou var linha = botao.getLinha();
+                var y = botao.getColuna(); // ou var coluna = botao.getColuna();
+                switch (e.getKeyCode()) {
+                    case KeyEvent.VK_UP -> botoes[--x < 0 ? nrLinhas - 1 :
+                            x][y].requestFocus();
+                    case KeyEvent.VK_DOWN -> botoes[(x + 1) %
+                            nrLinhas][y].requestFocus();
+                    case KeyEvent.VK_LEFT -> botoes[x][--y < 0 ? nrColunas - 1 :
+                            y].requestFocus();
+                    case KeyEvent.VK_RIGHT -> botoes[x][(y + 1) %
+                            nrColunas].requestFocus();
+                    case KeyEvent.VK_M -> {
+                        marcarQuadricula(x, y);
+                    }
+                }
+            }
+            @Override
+            public void keyReleased(KeyEvent e) {
+            }
+        };
+
         this.botoes = new BotaoCampoMinado[nrLinhas][nrColunas];
 
         gamePanel.setLayout(new GridLayout(nrLinhas, nrColunas));
@@ -27,6 +83,8 @@ public class JanelaDeJogo extends JFrame {
                 botoes[linha][coluna].addActionListener(
                         this::btnCampoMinadoActionPerformed
                 );
+                botoes[linha][coluna].addKeyListener(keyListener);
+                botoes[linha][coluna].addMouseListener(mouseListener);
                 gamePanel.add(botoes[linha][coluna]);
             }
         }
@@ -57,6 +115,15 @@ public class JanelaDeJogo extends JFrame {
         }
     }
 
+    private void marcarQuadricula(int x, int y) {
+        switch (campoMinado.getEstadoQuadricula(x, y)) {
+            case CampoMinado.TAPADO -> campoMinado.marcarComoTendoMina(x, y);
+            case CampoMinado.MARCADO -> campoMinado.marcarComoSuspeita(x, y);
+            case CampoMinado.DUVIDA -> campoMinado.desmarcarQuadricula(x, y);
+        }
+        actualizarEstadoBotoes();
+    }
+
     private void actualizarEstadoBotoes() {
         for (int x = 0; x < campoMinado.getNrLinhas(); x++) {
             for (int y = 0; y < campoMinado.getNrColunas(); y++) {
@@ -64,5 +131,6 @@ public class JanelaDeJogo extends JFrame {
             }
         }
     }
+
 
 }
