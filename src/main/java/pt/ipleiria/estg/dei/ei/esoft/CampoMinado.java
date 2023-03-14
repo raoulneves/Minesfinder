@@ -63,7 +63,6 @@ public class CampoMinado {
         if (jogoTerminado || estado[x][y] == TAPADO) {
             if(contarMinasVizinhas(x,y) == 0){
                 estado[x][y] = VAZIO;
-
                 revelarQuadriculasVizinhas(x,y);
             }else{
                 estado[x][y] = contarMinasVizinhas(x,y);
@@ -113,9 +112,11 @@ public class CampoMinado {
         for (var i = Math.max(0, x - 1); i < Math.min(nrLinhas, x + 2); ++i) {
             for (var j = Math.max(0, y - 1); j < Math.min(nrColunas, y + 2); ++j)
             {
-                if (estado[i][j] == VAZIO){
-                    revelarQuadricula(i,j);
+                if(i == x && j == y){
+                    continue;
                 }
+                revelarQuadricula(i,j);
+
             }
         }
     }
