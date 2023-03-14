@@ -16,10 +16,11 @@ public class JanelaDeJogo extends JFrame {
         var nrLinhas = campoMinado.getNrLinhas();
         var nrColunas = campoMinado.getNrColunas();
 
-        MouseListener mouseListener=new MouseListener() {
+        MouseListener mouseListener = new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
             }
+
             @Override
             public void mousePressed(MouseEvent e) {
                 if (e.getButton() != MouseEvent.BUTTON3) {
@@ -31,18 +32,21 @@ public class JanelaDeJogo extends JFrame {
                 var estadoQuadricula = campoMinado.getEstadoQuadricula(x, y);
                 marcarQuadricula(x, y);
             }
+
             @Override
             public void mouseReleased(MouseEvent e) {
             }
+
             @Override
             public void mouseEntered(MouseEvent e) {
             }
+
             @Override
             public void mouseExited(MouseEvent e) {
             }
         };
 
-        KeyListener keyListener=new KeyListener() {
+        KeyListener keyListener = new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {
 
@@ -67,6 +71,7 @@ public class JanelaDeJogo extends JFrame {
                     }
                 }
             }
+
             @Override
             public void keyReleased(KeyEvent e) {
             }
@@ -77,8 +82,8 @@ public class JanelaDeJogo extends JFrame {
         gamePanel.setLayout(new GridLayout(nrLinhas, nrColunas));
 
         // Cria e adiciona botoes
-        for (int linha = 0; linha < nrLinhas; ++linha){
-            for (int coluna = 0; coluna < nrColunas; ++coluna){
+        for (int linha = 0; linha < nrLinhas; ++linha) {
+            for (int coluna = 0; coluna < nrColunas; ++coluna) {
                 botoes[linha][coluna] = new BotaoCampoMinado(linha, coluna);
                 botoes[linha][coluna].addActionListener(
                         this::btnCampoMinadoActionPerformed
