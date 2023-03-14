@@ -92,17 +92,17 @@ public class MinesFinder extends JFrame {
     }
 
     private void btnFacilActionPerformed(ActionEvent e) {
-        var janela = new JanelaDeJogo(new CampoMinado(9, 9, 10), recordesFacil);
+        var janela = new JanelaDeJogo(new CampoMinado(9, 9, 5), recordesFacil);
         janela.setVisible(true);
     }
 
     private void btnMedioactionPerformed(ActionEvent e) {
-        var janela = new JanelaDeJogo(new CampoMinado(16, 16, 40), recordesMedio);
+        var janela = new JanelaDeJogo(new CampoMinado(16, 16, 5), recordesMedio);
         janela.setVisible(true);
     }
 
     private void btnDificilactionPerformed(ActionEvent e) {
-        var janela = new JanelaDeJogo(new CampoMinado(16, 30, 90), recordesDificil);
+        var janela = new JanelaDeJogo(new CampoMinado(16, 30, 5), recordesDificil);
         janela.setVisible(true);
     }
 

@@ -54,11 +54,7 @@ public class CampoMinado {
             colocarMinas(x, y);
         }
 
-        if(isVitoria()){
-            jogoTerminado = true;
-            jogadorDerrotado = false;
-            duracaoJogo = System.currentTimeMillis() - instanteInicioJogo;
-        }
+
 
         if (jogoTerminado || estado[x][y] == TAPADO) {
             if(contarMinasVizinhas(x,y) == 0){
@@ -67,6 +63,12 @@ public class CampoMinado {
             }else{
                 estado[x][y] = contarMinasVizinhas(x,y);
             }
+        }
+
+        if(isVitoria()){
+            jogoTerminado = true;
+            jogadorDerrotado = false;
+            duracaoJogo = System.currentTimeMillis() - instanteInicioJogo;
         }
 
 
