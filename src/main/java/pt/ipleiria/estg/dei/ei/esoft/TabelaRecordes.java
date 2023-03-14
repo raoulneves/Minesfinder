@@ -25,7 +25,7 @@ public class TabelaRecordes {
         this.tempo = tempo;
     }
 
-    public void setRecorde(String nome, int tempo) {
+    public void setRecorde(String nome, long tempo) {
         if(tempo < this.tempo){
             this.tempo = tempo;
             this.nome = nome;

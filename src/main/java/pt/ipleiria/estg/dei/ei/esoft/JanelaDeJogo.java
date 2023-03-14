@@ -123,9 +123,9 @@ public class JanelaDeJogo extends JFrame {
             boolean novoRecorde=campoMinado.getDuracaoJogo()<recordes.getTempo();
 
             if (novoRecorde) {
-                String nome=JOptionPane.showInputDialog("Introduza o seu nome");
+                String nome = JOptionPane.showInputDialog("Introduza o seu nome");
                 recordes.setRecorde(nome, campoMinado.getDuracaoJogo());
-
+            }
             setVisible(false);
         }
     }
