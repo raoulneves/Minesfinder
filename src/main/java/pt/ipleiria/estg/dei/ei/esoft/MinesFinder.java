@@ -2,7 +2,6 @@ package pt.ipleiria.estg.dei.ei.esoft;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class MinesFinder extends JFrame {
 
@@ -12,11 +11,21 @@ public class MinesFinder extends JFrame {
     private JButton sairButton;
     private JButton jogoMédioButton;
 
+    private TabelaRecordes recordeFacil;
+
+    private TabelaRecordes recordeMedio;
+
+    private TabelaRecordes recordeDificil;
+
     public MinesFinder(String title) {
         super(title);
 
         setContentPane(primaryPanel);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
+
+        this.recordeFacil = new TabelaRecordes();
+        this.recordeMedio = new TabelaRecordes();
+        this.recordeDificil = new TabelaRecordes();
 
         pack();
 
@@ -32,17 +41,17 @@ public class MinesFinder extends JFrame {
     }
 
     private void btnFacilActionPerformed(ActionEvent e){
-        var janela = new JanelaDeJogo(new CampoMinado(9,9,10));
+        var janela = new JanelaDeJogo(new CampoMinado(9,9,10), recordeFacil);
         janela.setVisible(true);
     }
 
     private void btnMedioactionPerformed(ActionEvent e) {
-        var janela = new JanelaDeJogo(new CampoMinado(16,16,40));
+        var janela = new JanelaDeJogo(new CampoMinado(16,16,40), recordeMedio);
         janela.setVisible(true);
     }
 
     private void btnDificilactionPerformed(ActionEvent e) {
-        var janela = new JanelaDeJogo(new CampoMinado(16,30,90));
+        var janela = new JanelaDeJogo(new CampoMinado(16,30,90), recordeDificil);
         janela.setVisible(true);
     }
 

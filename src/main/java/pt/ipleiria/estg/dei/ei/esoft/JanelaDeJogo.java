@@ -10,9 +10,12 @@ public class JanelaDeJogo extends JFrame {
     private BotaoCampoMinado[][] botoes;
     private CampoMinado campoMinado;
 
-    public JanelaDeJogo(CampoMinado campoMinado) {
-        this.campoMinado = campoMinado;
+    private TabelaRecordes recordes;
 
+    public JanelaDeJogo(CampoMinado campoMinado, TabelaRecordes tabela
+    ) {
+        this.campoMinado = campoMinado;
+        this.recordes = tabela;
         var nrLinhas = campoMinado.getNrLinhas();
         var nrColunas = campoMinado.getNrColunas();
 
@@ -116,6 +119,13 @@ public class JanelaDeJogo extends JFrame {
                 JOptionPane.showMessageDialog(null, "Parabéns. Conseguiu descobrir todas as minas em " +
                                 (campoMinado.getDuracaoJogo() / 1000) + " segundos",
                         "Vitória", JOptionPane.INFORMATION_MESSAGE);
+
+            boolean novoRecorde=campoMinado.getDuracaoJogo()<recordes.getTempo();
+
+            if (novoRecorde) {
+                String nome=JOptionPane.showInputDialog("Introduza o seu nome");
+                recordes.setRecorde(nome, campoMinado.getDuracaoJogo());
+
             setVisible(false);
         }
     }
