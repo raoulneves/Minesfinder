@@ -60,7 +60,7 @@ public class CampoMinado {
             duracaoJogo = System.currentTimeMillis() - instanteInicioJogo;
         }
 
-        if (jogoTerminado || estado[x][y] < TAPADO) {
+        if (jogoTerminado || estado[x][y] == TAPADO) {
             if(contarMinasVizinhas(x,y) == 0){
                 estado[x][y] = VAZIO;
 
@@ -77,7 +77,7 @@ public class CampoMinado {
             jogadorDerrotado = true;
             duracaoJogo = System.currentTimeMillis() - instanteInicioJogo;
         }
-        // Faz aqui qualquer coisa...
+
     }
 
     public void marcarComoTendoMina(int x, int y){
